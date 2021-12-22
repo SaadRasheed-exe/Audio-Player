@@ -30,10 +30,10 @@ public:
     virtual std::string addMusic(Song &) = 0;
 
     // Returns format of storage media.
-    virtual std::string getFormat() = 0;
+    virtual std::string getFormat() const = 0;
 
     // Returns capacity of storage media.
-    virtual int getCapacity() = 0;
+    virtual int getCapacity() const = 0;
 
     // Returns the name of the storage media.
     std::string getName() const;

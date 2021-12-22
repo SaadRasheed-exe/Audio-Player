@@ -12,11 +12,11 @@ bool leaving = false;
 Song *songList;
 int songCount;
 
-StorageMedia* arr[numOfMedias];
+StorageMedia *arr[numOfMedias];
 
 InCarAudioPlayer obj("Beats", "TK-045");
 
-StorageMedia* mediaMenu()
+StorageMedia *mediaMenu()
 {
     while (true)
     {
@@ -27,7 +27,9 @@ StorageMedia* mediaMenu()
         {
             if (arr[i])
             {
-                cout << ++count << ". " << arr[i]->getName() << " - " << arr[i]->getNoOfSongs() << " songs stored." << endl;
+                cout << ++count << ". " << arr[i]->getName()
+                     << " - " << arr[i]->getNoOfSongs()
+                     << " songs stored." << endl;
             }
         }
         cout << "Choose the storage media: ";
@@ -120,8 +122,8 @@ void init()
 
     songCount = 0;
 
-    DIR* dr;
-    struct dirent* en;
+    DIR *dr;
+    struct dirent *en;
     dr = opendir(".");
     if (dr)
     {
@@ -162,34 +164,7 @@ void init()
             }
         }
     }
-
-    /*Song a("Hawayein - Arijit Singh.mp3");
-    Song b("Kun Faya Kun - A.R. Rahman, Mohit Chauhan.mp3");
-    Song c("Maroon 5 - Memories.mp3");
-    Song d("Caslow-_-Exede-City-Lights.wav");
-    Song e("Deep-Blue-William-Black-ft.-Monika-Santucci.wav");
-    Song f("Khamoshiyan-Arijit-Singh.wav");
-    Song g("The-Chainsmokers-_-Coldplay-Something-Just-Like-This.wav");
-
-    arr[0]->addMusic(a);
-    arr[0]->addMusic(b);
-    arr[0]->addMusic(c);
-
-    arr[1]->addMusic(f);
-    arr[1]->addMusic(g);
-    arr[1]->addMusic(d);
-
-    arr[2]->addMusic(f);
-    arr[2]->addMusic(b);
-    arr[2]->addMusic(a);
-
-    arr[3]->addMusic(c);
-    arr[3]->addMusic(g);
-    arr[3]->addMusic(e);
-    arr[3]->addMusic(d);*/
-    
 }
-
 
 void bgmusic()
 {
@@ -207,7 +182,8 @@ void bgmusic()
 
 int main()
 {
-    if (!BASS_Init(-1, 44100, 0, 0, 0)) return 0;
+    if (!BASS_Init(-1, 44100, 0, 0, 0))
+        return 0;
 
     init();
 
