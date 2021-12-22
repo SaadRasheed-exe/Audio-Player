@@ -27,7 +27,7 @@ void CD::setMaxSongs(int n)
     maxSongs = n;
 }
 
-std::string CD::addMusic(Song& s)
+std::string CD::addMusic(Song &s)
 {
     if (list == NULL)
     {
@@ -38,23 +38,20 @@ std::string CD::addMusic(Song& s)
     }
     if (numOfSongs == maxSongs)
     {
-        /*std::cout << "No more space available on the CD." << std::endl;*/
         return "capacity";
     }
     if (s.getFormat() != tolower(format))
     {
-        /*std::cout << "Format of song does not match the format of the CD." << std::endl;*/
         return "format";
     }
     for (int i = 0; i < numOfSongs; i++)
     {
         if (list[i].getTitle() == s.getTitle())
         {
-            /*std::cout << "Song with same title exists." << std::endl;*/
             return "title";
         }
     }
-    Song* temp = new Song[++numOfSongs];
+    Song *temp = new Song[++numOfSongs];
     for (int i = 0; i < numOfSongs - 1; i++)
     {
         temp[i] = list[i];
@@ -65,6 +62,6 @@ std::string CD::addMusic(Song& s)
     return "";
 }
 
-std::string CD::getFormat() { return format; }
+std::string CD::getFormat() const { return format; }
 
-int CD::getCapacity() { return -1; }
+int CD::getCapacity() const { return -1; }

@@ -25,20 +25,20 @@ public:
     Song(std::string = "NULL");
 
     // Returns the song title.
-    std::string getTitle();
+    std::string getTitle() const;
 
     // Return the song size.
-    double getSize();
+    double getSize() const;
 
     // Returns the format of the song.
-    std::string getFormat();
+    std::string getFormat() const;
 
     // Returns the file name.
-    std::string getFileName();
+    std::string getFileName() const;
 
-    HSTREAM getChannel();
+    // Returns the channel.
+    HSTREAM getChannel() const;
 
-    bool operator==(Song&);
-
+    // Compares two song objects.
+    bool operator==(Song &) const;
 };
-

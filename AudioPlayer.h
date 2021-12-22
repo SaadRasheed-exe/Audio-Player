@@ -23,6 +23,5 @@ public:
     std::string getManufacturer() const;
 
     // Returns model number.
-    std::string getModel();
+    std::string getModel() const;
 };
-

@@ -2,7 +2,6 @@
 #include <fstream>
 #include <direct.h>
 
-
 using namespace std;
 
 Song::Song(std::string f)
@@ -10,25 +9,10 @@ Song::Song(std::string f)
 	fileName = f;
 	if (f != "NULL")
 	{
-		/*string acd = "Hawayein - Arijit Singh.mp3";
-		string narrow_string(acd);
-		wstring wide_string = wstring(narrow_string.begin(), narrow_string.end());
-		const wchar_t* result = wide_string.c_str();
-		HSTREAM bhg = BASS_StreamCreateFile(false, result, 0, 0, 0);
-		BASS_ChannelPlay(bhg, true);
-		while (BASS_ChannelIsActive(bhg))
-		{
-
-		}*/
 		string narrow_string(f);
 		wstring wide_string = wstring(narrow_string.begin(), narrow_string.end());
-		const wchar_t* result = wide_string.c_str();
+		const wchar_t *result = wide_string.c_str();
 		channel = BASS_StreamCreateFile(false, result, 0, 0, 0);
-		/*BASS_ChannelPlay(channel, true);
-		while (BASS_ChannelIsActive(channel))
-		{
-
-		}*/
 		setSize();
 	}
 }
@@ -43,9 +27,9 @@ void Song::setSize()
 	size = ((double)x.tellg() / (double)1024) / (double)1024;
 }
 
-double Song::getSize() { return size; }
+double Song::getSize() const { return size; }
 
-std::string Song::getTitle()
+std::string Song::getTitle() const
 {
 	string c = "";
 	for (int i = 0; i < fileName.length(); i++)
@@ -59,7 +43,7 @@ std::string Song::getTitle()
 	return c;
 }
 
-std::string Song::getFormat()
+std::string Song::getFormat() const
 {
 	string c = "";
 	for (int i = fileName.length() - 1; i > 0; i--)
@@ -73,11 +57,11 @@ std::string Song::getFormat()
 	return c;
 }
 
-std::string Song::getFileName() { return fileName; }
+std::string Song::getFileName() const { return fileName; }
 
-HSTREAM Song::getChannel() { return channel; }
+HSTREAM Song::getChannel() const { return channel; }
 
-bool Song::operator==(Song& s)
+bool Song::operator==(Song &s) const
 {
 	if (fileName == s.fileName && channel == s.channel)
 	{

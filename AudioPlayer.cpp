@@ -8,4 +8,4 @@ AudioPlayer::AudioPlayer(std::string manu, std::string model)
 
 std::string AudioPlayer::getManufacturer() const { return manufacturer; }
 
-std::string AudioPlayer::getModel() { return modelNumber; }
+std::string AudioPlayer::getModel() const { return modelNumber; }

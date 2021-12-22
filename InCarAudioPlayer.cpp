@@ -7,7 +7,7 @@ InCarAudioPlayer::InCarAudioPlayer(std::string manu = "", std::string model = ""
     power = true;
 }
 
-bool InCarAudioPlayer::mount(StorageMedia* m)
+bool InCarAudioPlayer::mount(StorageMedia *m)
 {
     if (m->getFormat() == "ANY")
     {
@@ -65,11 +65,11 @@ void InCarAudioPlayer::powerToggle()
     power = !power;
 }
 
-StorageMedia* InCarAudioPlayer::getMounted() { return mounted; }
+StorageMedia *InCarAudioPlayer::getMounted() const { return mounted; }
 
-Song InCarAudioPlayer::getCurrSong() { return currentSong; }
+Song InCarAudioPlayer::getCurrSong() const { return currentSong; }
 
-bool InCarAudioPlayer::getPower() { return power; }
+bool InCarAudioPlayer::getPower() const { return power; }
 
 void InCarAudioPlayer::playNext()
 {

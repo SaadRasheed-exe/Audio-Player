@@ -15,17 +15,8 @@ StorageMedia::~StorageMedia()
 	}
 }
 
-std::string StorageMedia::getName()
-{
-	return name;
-}
+std::string StorageMedia::getName() const { return name; }
 
-Song* StorageMedia::getList()
-{
-	return list;
-}
+Song *StorageMedia::getList() const { return list; }
 
-int StorageMedia::getNoOfSongs()
-{
-	return numOfSongs;
-}
+int StorageMedia::getNoOfSongs() const { return numOfSongs; }

@@ -1,11 +1,10 @@
 #pragma once
 #include "AudioPlayer.h"
-class InCarAudioPlayer :
-    public AudioPlayer
+class InCarAudioPlayer : public AudioPlayer
 {
 private:
     // Mounted storage media. Is NULL if nothing is mounted.
-    StorageMedia* mounted;
+    StorageMedia *mounted;
 
     // Current song being played on the player.
     Song currentSong;
@@ -22,23 +21,22 @@ public:
     InCarAudioPlayer(std::string, std::string);
 
     // Mounts a storage media.
-    bool mount(StorageMedia*);
+    bool mount(StorageMedia *);
 
     // Unmounts the mounted media.
     void unmount();
 
     // Returns mounted storage media.
-    StorageMedia* getMounted();
+    StorageMedia *getMounted() const;
 
     // Returns the current song being played.
-    Song getCurrSong();
+    Song getCurrSong() const;
 
     // Toggles the power status of the audio player.
     void powerToggle();
 
     // Returns the power status of the player.
-    bool getPower();
+    bool getPower() const;
 
     void playNext();
 };
-

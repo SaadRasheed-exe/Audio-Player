@@ -1,8 +1,7 @@
 #pragma once
 #include "StorageMedia.h"
 
-class USB :
-    public StorageMedia
+class USB : public StorageMedia
 {
 private:
     // Capacity of the USB in gigabytes.
@@ -20,12 +19,11 @@ public:
     USB(int = 4, std::string = "SanDisk USB");
 
     // Adds music to the USB.
-    std::string addMusic(Song&);
+    std::string addMusic(Song &);
 
     // Returns format of songs on the USB.
-    std::string getFormat();
+    std::string getFormat() const;
 
     // Returns capacity of the USB.
-    int getCapacity();
+    int getCapacity() const;
 };
-

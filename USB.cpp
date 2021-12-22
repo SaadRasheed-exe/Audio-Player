@@ -18,7 +18,7 @@ void USB::setCap(int c)
     }
 }
 
-std::string USB::addMusic(Song& s)
+std::string USB::addMusic(Song &s)
 {
     if (list == NULL)
     {
@@ -32,18 +32,16 @@ std::string USB::addMusic(Song& s)
     {
         if (list[i].getTitle() == s.getTitle())
         {
-            /*std::cout << "Song with same title exists." << std::endl;*/
             return "title";
         }
         totalsize += list[i].getSize();
     }
     if (totalsize > capacity * 1024)
     {
-        /*std::cout << "Not enough space on the drive" << std::endl;*/
         return "capacity";
     }
 
-    Song* temp = new Song[++numOfSongs];
+    Song *temp = new Song[++numOfSongs];
     for (int i = 0; i < numOfSongs - 1; i++)
     {
         temp[i] = list[i];
@@ -54,6 +52,6 @@ std::string USB::addMusic(Song& s)
     return "";
 }
 
-std::string USB::getFormat() { return "ANY"; }
+std::string USB::getFormat() const { return "ANY"; }
 
-int USB::getCapacity() { return capacity; }
+int USB::getCapacity() const { return capacity; }

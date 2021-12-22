@@ -1,8 +1,7 @@
 #pragma once
 #include "StorageMedia.h"
 
-class CD :
-    public StorageMedia
+class CD : public StorageMedia
 {
 private:
     // Format of the songs on the CD.
@@ -27,11 +26,10 @@ public:
     CD(int = 5, std::string = "MP3", std::string = "Maxell RW CD");
 
     // Adds music to the CD.
-    std::string addMusic(Song&);
+    std::string addMusic(Song &);
 
     // Returns format of songs in the CD.
-    std::string getFormat();
+    std::string getFormat() const;
 
-    int getCapacity();
+    int getCapacity() const;
 };
-
